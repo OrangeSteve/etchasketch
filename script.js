@@ -12,15 +12,23 @@ createGridButton.addEventListener(`click`, () => { clearGrid(); createGrid() });
 gridSizeSlider.oninput = () => { gridSizeSliderLabel.textContent = `Cells per grid axis: ${gridSizeSlider.value}` };
 
 function clearGrid() {
-    const gridCellsToRemove = document.querySelectorAll(`.grid-cell`);
+    const gridCellsToClean = document.querySelectorAll(`.grid-cell`);
 
-    gridCellsToRemove.forEach(cell => {
-        cell.remove();
+    gridCellsToClean.forEach(cell => {
+        cell.style.setProperty("background-color", "black");
+
     });
+
 }
 
 function createGrid() {
 
+    const gridCellsToRemove = document.querySelectorAll(`.grid-cell`);
+    if (gridCellsToRemove.length > 0) {
+        gridCellsToRemove.forEach(cell => {
+            cell.remove();
+        });
+    }
     const gridSizePerAxis = gridSizeSlider.value;
     const gridSize = gridSizePerAxis * gridSizePerAxis;
     const cellSize = ((gridSizeInPixels / gridSizePerAxis) * 1000) / 1000;
@@ -28,8 +36,8 @@ function createGrid() {
     for (let i = 0; i < gridSize; i++) {
         gridContainer.setAttribute(`style`, `width:${gridSizeInPixels}px;height:${gridSizeInPixels}px;display:grid;grid-template-columns:repeat(${gridSizePerAxis},${cellSize}px);`);
         let gridCell = document.createElement(`div`);
-       
         gridCell.classList.add(`grid-cell`);
+        gridCell.addEventListener(`mouseenter`, () => { gridCell.style.setProperty("background-color", "white"); });
         gridContainer.appendChild(gridCell);
 
     }
