@@ -1,0 +1,83 @@
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+    html {
+        font-family: 'Press Start 2P', cursive;
+        background-color: #000000;
+        color: white;
+    }
+
+    #main-content {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-self: center;
+    }
+
+    #grid-container {
+        border: 2px solid white;
+        border-radius: 2px;
+        padding: 0px;
+        margin: 0px;
+        background-color: black;
+    }
+
+    #settings-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-self: center;
+        background-color: black;
+        color: white;
+        width: 300px;
+        height: 100px;
+        border: 2px solid white;
+        border-radius: 2px;
+        padding: 4px;
+    }
+
+    .grid-cell {
+        display: block;
+        width: auto;
+        height: auto;
+        background-color: black;
+    }
+
+    .btn {
+        height: 30px;
+        background-color: transparent;
+        color: white;
+        font-family: 'Press Start 2P', cursive;
+        border-radius: 2px;
+    }
+</style>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etch-a-Sketch</title>
+</head>
+
+<body>
+    <header>
+        <h1 style="text-align: center;">Etch-a-Sketch</h1>
+    </header>
+    <div id="main-content">
+        <div id="grid-container"></div>
+        <div id="settings-container">
+            <label id="grid-size-slider-label" for="grid-size-slider"
+                style="display: block;width: 80%;text-align: left;font-size: 12px;white-space: nowrap;">Cells per grid
+                axis:</label>
+            <input id="grid-size-slider" type="range" min="2" max="64" value="2" style="display: block;">
+            <button class="btn clear-button" style="display: block;width:90%;margin: auto;">Clean Grid</button>
+            <button class="btn create-grid-button" style="display: block;width:90%;margin: auto;">Create Grid</button>
+        </div>
+    </div>
+    <script src="/script.js"></script>
+</body>
+</html>
