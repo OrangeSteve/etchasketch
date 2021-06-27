@@ -1,10 +1,24 @@
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
+
+:root{
+
+    --empty-cell-color:black;
+    --full-cell-color:white;
+    --background-color:black;
+    --grid-background-color:black;
+    --settings-background-color:black;
+    --border-color:white;
+    --text-color:white;
+
+}
+
+
     html {
         font-family: 'Press Start 2P', cursive;
-        background-color: #000000;
-        color: white;
+        background-color: var(--background-color);
+        color: var(--text-color);
     }
 
     #main-content {
@@ -15,23 +29,24 @@
     }
 
     #grid-container {
-        border: 2px solid white;
+        border: 2px solid var(--border-color);
         border-radius: 2px;
         padding: 0px;
         margin: 0px;
-        background-color: black;
+        background-color: var(--grid-background-color);
     }
 
     #settings-container {
         display: flex;
         flex-direction: column;
+        gap: 10px;
         justify-content: space-between;
         align-self: center;
-        background-color: black;
-        color: white;
+        background-color: var(--settings-background-color);
+        color: var(--text-color);
         width: 300px;
-        height: 100px;
-        border: 2px solid white;
+        height: auto;
+        border: 2px solid var(--border-color);
         border-radius: 2px;
         padding: 4px;
     }
@@ -40,15 +55,25 @@
         display: block;
         width: auto;
         height: auto;
-        background-color: black;
+   
+    }
+
+    .empty-grid-cell{
+        background-color: var(--empty-cell-color);
+    }
+
+    .full-grid-cell{
+        background-color: var(--full-cell-color);
     }
 
     .btn {
         height: 30px;
         background-color: transparent;
-        color: white;
+        color: var(--text-color);
         font-family: 'Press Start 2P', cursive;
+        border:2px solid var(--border-color);
         border-radius: 2px;
+  
     }
 </style>
 
@@ -70,6 +95,12 @@
     <div id="main-content">
         <div id="grid-container"></div>
         <div id="settings-container">
+            <label for="standard-theme">
+                <input id="standard-theme" type="radio" name="theme" value="standard" checked="checked">Standard
+            </label>
+            <label for="monochrome-theme">
+                <input id="monochrome-theme" type="radio" name="theme" value="monochrome">Monochrome
+            </label>
             <label id="grid-size-slider-label" for="grid-size-slider"
                 style="display: block;width: 80%;text-align: left;font-size: 12px;white-space: nowrap;">Cells per grid
                 axis: 32</label>
@@ -80,4 +111,5 @@
     </div>
     <script src="/script.js"></script>
 </body>
+
 </html>
